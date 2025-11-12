@@ -36,8 +36,8 @@ def get_employees_list_handler(
     items = [EmployeeSchema.from_entity(employee) for employee in employee_list]
 
     pagination_out = PaginationOut(
-        offset=0,
-        limit=employee_count,
+        offset=pagination_in.offset,
+        limit=pagination_in.limit,
         total=employee_count,
     )
 
