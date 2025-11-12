@@ -7,9 +7,7 @@ from core.apps.employee.models import EmployeeModel
 @admin.register(EmployeeModel)
 class EmployeeAdmin(admin.ModelAdmin):
     list_display = (
-        "first_name",
-        "last_name",
-        "middle_name",
+        "get_full_name",
         "position",
         "date_hired",
         "salary",
@@ -19,3 +17,18 @@ class EmployeeAdmin(admin.ModelAdmin):
     search_fields = ("first_name", "last_name", "middle_name")
     list_per_page = 10
     list_select_related = ("manager",)
+
+    fieldsets = (
+        (
+            "ФИО",
+            {
+                "fields": ("last_name", "first_name", "middle_name"),
+            },
+        ),
+        (
+            "Информация о работе",
+            {
+                "fields": ("position", "date_hired", "salary", "manager"),
+            },
+        ),
+    )

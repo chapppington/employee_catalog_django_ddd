@@ -8,8 +8,8 @@ from core.apps.employee.entities.employee import EmployeeEntity
 
 class EmployeeModel(TimedBaseModel):
     id = models.BigAutoField(primary_key=True)
-    first_name = models.CharField(verbose_name="Имя", max_length=255)
     last_name = models.CharField(verbose_name="Фамилия", max_length=255)
+    first_name = models.CharField(verbose_name="Имя", max_length=255)
     middle_name = models.CharField(verbose_name="Отчество", max_length=255)
     position = models.CharField(verbose_name="Должность", max_length=128)
     date_hired = models.DateField(verbose_name="Дата приёма на работу")
@@ -28,7 +28,13 @@ class EmployeeModel(TimedBaseModel):
     )
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} {self.middle_name}".strip()
+        return f"{self.last_name} {self.first_name} {self.middle_name}".strip()
+
+    def get_full_name(self) -> str:
+        """Возвращает полное ФИО сотрудника."""
+        return f"{self.last_name} {self.first_name} {self.middle_name}".strip()
+
+    get_full_name.short_description = "ФИО"
 
     class Meta:
         db_table = "employee"
