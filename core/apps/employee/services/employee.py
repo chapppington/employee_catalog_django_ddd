@@ -7,8 +7,8 @@ from typing import Iterable
 from django.db.models import Q
 
 from core.api.filters import PaginationIn
-from core.api.v1.employees.filters import EmployeeFilters
 from core.apps.employee.entities.employee import EmployeeEntity
+from core.apps.employee.filters.employee import EmployeeFilters
 from core.apps.employee.models.employee import EmployeeModel
 
 
