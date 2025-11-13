@@ -28,7 +28,7 @@ faker = "^37.12.0"
 pytest-django = "^4.11.1"
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "core.core.project.settings.local.local"
+DJANGO_SETTINGS_MODULE = "core.project.settings.local"
 
 
 [tool.isort]
