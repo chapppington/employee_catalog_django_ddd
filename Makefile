@@ -59,4 +59,4 @@ precommit:
 
 .PHONY: test
 test:
-	${EXEC} ${APP_CONTAINER} pytest -v
+	${EXEC} ${APP_CONTAINER} pytest
